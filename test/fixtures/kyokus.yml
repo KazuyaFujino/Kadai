@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: MyText
+  senkei: MyText
+  comment: MyText
+  kif: MyText
+
+two:
+  day: MyText
+  senkei: MyText
+  comment: MyText
+  kif: MyText

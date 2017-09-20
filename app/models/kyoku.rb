@@ -1,0 +1,2 @@
+class Kyoku < ApplicationRecord
+end

@@ -1,0 +1,26 @@
+<h1>棋譜管理β</h1>
+<p><%= @msg %></p>
+
+<table>
+	<tr>
+		<th>記録日</th><th>戦型</th><th>コメント</th><th colspan="2"></th>
+	</tr>
+	<% @data.each do |obj| %>
+	<tr>
+		<td><a href="/diary/<%= obj.id %>"><%= obj.day %><a/></td>
+		<td><%= obj.senkei %></td>
+		<td><%= obj.comment %></td>
+		<td><a href="/diary/edit/<%= obj.id %>">編集</a></td>
+		<td><a href="javascript:delData(<%= obj.id %>);">削除</a></td>
+	</tr>
+	<% end %>
+</table>
+
+<script>
+function delData(num){
+	if (fonfirm('この棋譜情報を削除しますか？')){
+		document.location = "/diary/delete/" + num;
+	}
+	return false;
+}
+</script>

@@ -1,0 +1,15 @@
+<h1>鬼門</h1>
+<p><%= @msg %></p>
+<%= form_for(@diary, url:{controller:'diary',action:'create'}) do |form|%>
+	<table>
+		<tr><th>対局日</th><td><%= form.text_field :day %></td></tr>
+		<tr><th>戦型	</th><td><%= form.text_field :senkei %></td></tr>
+		<tr><th>コメント</th><td><%= form.text_area :comment,{cols:40,rows:5} %></td></tr>
+		<tr><th>棋譜</th><td><%= form.text_area :kif,{cols:30,rows:10} %></td></tr>
+		</tr>
+		<tr><th></th>
+			<td><%= form.submit "内容を送信" %></td></tr>
+		</tr>
+		<% end %>
+	</table>
+</form>
