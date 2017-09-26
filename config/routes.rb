@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 	
+  devise_for :accounts
   get 'diary/index'
   get 'diary',to: 'diary#index'
 
@@ -13,7 +14,12 @@ Rails.application.routes.draw do
 
   get 'diary/delete/:id',to:'diary#delete'
 
+  get 'diary/find'
+  post 'diary/find'
+
   get 'diary/:id',to: 'diary#show'
+
+  get 'hello/login_check'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

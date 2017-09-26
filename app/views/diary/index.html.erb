@@ -2,8 +2,12 @@
 <p><%= @msg %></p>
 
 <table>
+	
+	<a href="/diary/add">データを追加する<a/>
+	<a href="/diary/find">戦型検索</a>
+
 	<tr>
-		<th>記録日</th><th>戦型</th><th>コメント</th><th colspan="2"></th>
+		<th>対局日</th><th>戦型</th><th>コメント</th><th colspan="2"></th>
 	</tr>
 	<% @data.each do |obj| %>
 	<tr>
@@ -18,7 +22,7 @@
 
 <script>
 function delData(num){
-	if (fonfirm('この棋譜情報を削除しますか？')){
+	if (confirm('この棋譜情報を削除しますか？')){
 		document.location = "/diary/delete/" + num;
 	}
 	return false;
