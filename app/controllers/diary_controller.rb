@@ -1,6 +1,12 @@
 class DiaryController < ApplicationController
   
+  layout 'diary'
+  #layout 'application'
+  before_action :authenticate_account!#,only: :login_check
+
   def index
+    @header = '棋譜管理β'
+    @footer = 'compyright KAZUYA-Fujino 2017'
   	@msg = '全データ'
   	@data = Kyoku.all
   end
@@ -17,14 +23,17 @@ class DiaryController < ApplicationController
 
 
   def create
-  	if request.post? then
-  		Kyoku.create(kyoku_params)
-  	end
-  	redirect_to '/diary'
+    @kyoku = Kyoku.new kyoku_params
+  	if @kyoku.save then
+  		redirect_to '/diary'
+  	else
+      @msg= '入力に問題があります'
+      render 'add'
+    end
   end
 
   def edit
-  	@msg = "データの再編集ができます"+ params[:id] +""
+  	@msg = "データの再編集ができます"
   	@diary = Kyoku.find(params[:id])
   end
   
@@ -38,6 +47,19 @@ class DiaryController < ApplicationController
   	obj = Kyoku.find(params[:id])
   	obj.destroy
   	redirect_to '/diary'
+  end
+
+  def find
+    @msg = '検索するワードを打ち込んでください'
+    @diary = Array.new
+    if request.post? then
+      @diary = Kyoku.where "senkei like ?", '%' + params[:find] + '%'
+    end
+  end
+
+  def login_check
+    @account = current_account
+    @msg = 'you logined at:'+@account.current_sign_in_at.to_s
   end
 
   private

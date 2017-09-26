@@ -1,12 +1,16 @@
 <h1>棋譜管理β</h1>
 <p><%= @msg %></p>
 
+<a href="/diary">戻る</a>
+
 <pre>
 <table>
 
+	<tr><th></th><td><a href="/diary/edit/<%= @data.id %>">このデータの編集</a></td></tr>
+
 	<tr><th>Id</th><td><%= @data.id %></td></tr>
 
-	<tr><th>number</th><td><%= @data.day %></td></tr>
+	<tr><th>対局日</th><td><%= @data.day %></td></tr>
 
 	<tr><th>戦型</th><td><%= @data.senkei %></td></tr>
 

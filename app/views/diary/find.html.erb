@@ -1,0 +1,29 @@
+<h1>棋譜管理β</h1>
+<p><%= @msg %></p>
+	
+<a href="/diary">戻る</a>
+
+<%= form_tag(controller:'diary',action:'find') do %>
+	<table>
+		<tr><th>FIND</th><td><%= text_field_tag("find") %></td></tr>
+		<tr><th></th><td><%= submit_tag("Click") %></td></tr>
+		</tr>
+		<% end %>
+	</table>
+</form>
+
+<hr>
+
+<table>
+	<tr>
+		<th>対局日</th><th>戦型</th><th>コメント</th>
+	</tr>
+	<% @diary.each do |obj| %>
+
+	<tr>
+		<td><a href="/diary/<%= obj.id %>"><%= obj.day %><a/></td>
+		<td><%= obj.senkei %></td>
+		<td><%= obj.comment %></td>
+	</tr>
+	<% end %>
+</table>

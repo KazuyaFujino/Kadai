@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title>KifDiary</title>
+		<%= stylesheet_link_tag 'diary',media: 'all','data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'diary','data-turbolinks-track': 'reload'%>
+
+	</head>
+
+	<body>
+
+	    <%= render template:'layouts/diary_header'%>
+	    <%= yield %>
+	    <dev></dev>
+    	<hr size="1" color="#aaa">
+    	<%= render template:'layouts/diary_footer' %>
+	</body>
+
+</html>

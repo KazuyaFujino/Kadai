@@ -1,5 +1,7 @@
-<h1>編集</h1>
+<h1>棋譜管理β</h1>
 <p><%= @msg %></p>
+
+<a href="/diary">戻る</a>
 
 <%= form_for(@diary, url:{controller:'diary',action:'update',id:@diary.id}) do |form| %>
 	<table>

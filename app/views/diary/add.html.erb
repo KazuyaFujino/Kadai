@@ -1,6 +1,9 @@
-<h1>鬼門</h1>
+<h1>棋譜管理β</h1>
 <p><%= @msg %></p>
-<%= form_for(@diary, url:{controller:'diary',action:'create'}) do |form|%>
+
+<a href="/diary">戻る</a>
+
+<%= form_for(@kyoku, url:{controller:'diary',action:'create'}) do |form|%>
 	<table>
 		<tr><th>対局日</th><td><%= form.text_field :day %></td></tr>
 		<tr><th>戦型	</th><td><%= form.text_field :senkei %></td></tr>
